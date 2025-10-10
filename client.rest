@@ -1,4 +1,38 @@
 @baseurl = http://localhost:3000
 
 # @name AppController
-GET {{baseurl}}
+
+# MESSAGE
+GET {{baseurl}}/message/
+?limit=10
+&offset=0
+###
+GET {{baseurl}}/message/1
+###
+POST {{baseurl}}/message
+Content-Type: application/json
+
+
+ {
+    "text": "test2",
+    "from": "Ana",
+    "to": "Renan",
+    "TATA": "OII",
+    "read": false,
+    "date": "2025-09-08T11:32:39.624Z"
+}
+###
+PATCH {{baseurl}}/message/1
+Content-Type: application/json
+
+ {
+    "text": "testupdate",
+    "from": "Annn",
+    "to": "Renan",
+    "read": false,
+    "date": "2025-09-08T11:32:39.624Z"
+}
+
+###
+
+DELETE {{baseurl}}/message/1
