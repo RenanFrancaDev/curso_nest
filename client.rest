@@ -12,27 +12,52 @@ GET {{baseurl}}/message/1
 POST {{baseurl}}/message
 Content-Type: application/json
 
-
  {
-    "text": "test2",
-    "from": "Ana",
-    "to": "Renan",
-    "TATA": "OII",
-    "read": false,
-    "date": "2025-09-08T11:32:39.624Z"
+    "text": "test222222",
+    "fromId": 3,
+    "toId": 3
 }
 ###
-PATCH {{baseurl}}/message/1
+PATCH {{baseurl}}/message/8
 Content-Type: application/json
 
  {
-    "text": "testupdate",
-    "from": "Annn",
-    "to": "Renan",
-    "read": false,
-    "date": "2025-09-08T11:32:39.624Z"
+    "text": "testupdsssate",
+    "read": true
 }
 
 ###
 
 DELETE {{baseurl}}/message/1
+###
+
+
+# User
+
+GET {{baseurl}}/user/
+?limit=10
+&offset=0
+###
+GET {{baseurl}}/user/1
+###
+POST {{baseurl}}/user
+Content-Type: application/json
+
+
+ {
+    "email": "renan355@email.com",
+    "password": "123456",
+    "name": "Renan"
+}
+###
+PATCH {{baseurl}}/user/1
+Content-Type: application/json
+
+ {
+    "email": "renan323@email.com",
+    "password": "1234562"
+}
+
+###
+
+DELETE {{baseurl}}/user/1
