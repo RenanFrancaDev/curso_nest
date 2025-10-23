@@ -6,6 +6,7 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Query,
@@ -39,6 +40,7 @@ export class MessageController {
 
   @HttpCode(HttpStatus.OK)
   @Patch(':id')
+
   update(@Param('id') id: number, @Body() updateMessageDto: UpdateMessageDto) {
     return this.messageService.update(id, updateMessageDto);
   }
