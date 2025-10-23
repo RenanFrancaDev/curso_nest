@@ -2,6 +2,7 @@ import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 
 import { ValidationPipe, ClassSerializerInterceptor } from '@nestjs/common';
+import { ParseIntIdPipe } from './common/pipes/parse-int-id.pipe';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,6 +16,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true, //return error if user send unecessary key
       transform: false, //Try transform type of params (ex: id)
     }),
+    new ParseIntIdPipe(), //Pipe personalizado inserido globalmente
   );
   await app.listen(process.env.PORT ?? 3000);
 }
